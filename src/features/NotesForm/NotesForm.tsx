@@ -1,41 +1,51 @@
 /** @jsxImportSource @emotion/react */
 
-import { ChangeEvent } from "react";
-import { css } from "@emotion/react";
+import { ChangeEvent } from "react"
+import { css } from "@emotion/react"
 
 export const NotesForm = ({ notes, setNotes, submitNotes }) => (
-  <Form>
-    <textarea
-      rows={5}
-      cols={32}
-      value={notes}
-      onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-        setNotes(e.target.value)
-      }
-    />
-    <button
-      type="submit"
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        submitNotes(notes);
-      }}
-    >
-      Parse
-    </button>
-  </Form>
-);
+  <Wrapper>
+    <Form>
+      <textarea
+        rows={5}
+        value={notes}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setNotes(e.target.value)
+        }
+      />
+      <button
+        type="submit"
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+          e.preventDefault()
+          submitNotes(notes)
+        }}
+      >
+        Parse
+      </button>
+    </Form>
+  </Wrapper>
+)
+
+const Wrapper = props => (
+  <div {...props} css={css`
+    width: 100%;
+    background: #8F859E;
+    border-bottom: 2px solid #313948;
+    display: flex;
+    justify-content: center;
+    padding: 64px 12px 8px;
+  `} />
+)
 
 const Form = (props) => (
   <form
     {...props}
     css={css`
       width: 100%;
-      background: #8F859E;
-      border-bottom: 2px solid #313948;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 64px 0 8px;
+      max-width: 524px;
 
       button,
       textarea {
@@ -49,6 +59,7 @@ const Form = (props) => (
       textarea {
         text-align: center;
         padding: 0.5rem 1rem;
+        width: 100%;
       }
 
       button {
@@ -61,4 +72,4 @@ const Form = (props) => (
       }
     `}
   />
-);
+)

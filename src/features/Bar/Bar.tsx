@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import { FC } from "react";
-import { css } from "@emotion/react";
-import { HITS, HIT_REGEX } from "../../helpers";
+import { FC } from "react"
+import { css } from "@emotion/react"
+import { HITS, HIT_REGEX } from "../../helpers"
 
 type Props = {
-  notes: string;
-};
+  notes: string
+}
 
 export const Bar: FC<Props> = ({ notes }) => (
   <Wrapper>
@@ -25,10 +25,10 @@ export const Bar: FC<Props> = ({ notes }) => (
         )
       )}
   </Wrapper>
-);
+)
 
 const getDivider = (hit) =>
-  hit?.length > 1 ? ([...hit][0] === HITS.TREMOLO ? 8 : 6) : 4;
+  hit?.length > 1 ? ([...hit][0] === HITS.TREMOLO ? 8 : 6) : 4
 
 const Wrapper = (props) => (
   <div
@@ -40,13 +40,10 @@ const Wrapper = (props) => (
       border-left: 4px solid #9a9aa0;
       border-right: 4px solid #9a9aa0;
       border-top: 2px solid #9a9aa0;
-
-      &:not(:first-of-type) {
-        margin-left: -4px;
-      }
+      margin: 0 0 16px -4px;
     `}
   />
-);
+)
 
 const Hit = ({ label = "", divider = 4 }) => (
   <div
@@ -80,7 +77,7 @@ const Hit = ({ label = "", divider = 4 }) => (
       {label}
     </div>
   </div>
-);
+)
 
 // const getHitColor = (hitLabel) => {
 //   switch (hitLabel) {
@@ -98,12 +95,12 @@ const Hit = ({ label = "", divider = 4 }) => (
 const getHitColor = (hitLabel) => {
   switch (hitLabel) {
     case HITS.BASS:
-      return "#695a81";
+      return "#695a81"
     case HITS.TONE:
-      return "#695a8177";
+      return "#695a8177"
     case HITS.SLAP:
-      return "#695a8133";
+      return "#695a8133"
     default:
-      return "transparent";
+      return "transparent"
   }
-};
+}
