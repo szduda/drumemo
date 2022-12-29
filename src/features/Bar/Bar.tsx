@@ -50,6 +50,9 @@ const Hit = ({ label = "", divider = 4 }) => (
     css={css`
       display: inline-block;
       width: ${400 / divider}%;
+      &:not(:first-of-type) {
+        border-left: 1px solid #f8f8f7;
+      }
     `}
   >
     <div
@@ -60,10 +63,6 @@ const Hit = ({ label = "", divider = 4 }) => (
         margin-right: 1px;
         background: ${getHitColor(label)};
         padding: 0 4px;
-
-        &:not(:first-of-type) {
-          border-left: 1px solid #f8f8f7;
-        }
       `}
     />
     <div
