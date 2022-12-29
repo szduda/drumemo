@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { FC, useMemo, useState } from "react"
+import { FC, useState } from "react"
 import { css } from "@emotion/react"
 import { convertToBars } from "../../helpers"
 import { Bar } from ".."
@@ -12,11 +12,12 @@ type Props = {
 
 export const BarPrinter: FC<Props> = ({ notes }) => {
   const [cols, setCols] = useState(4)
+  const [base, setBase] = useState(4)
 
   return (
     <Wrapper {...{ cols }}>
-      <Settings {...{ cols, setCols }} />
-      {convertToBars(notes).map((bar, barIndex) =>
+      <Settings {...{ cols, setCols, base, setBase }} />
+      {convertToBars(notes, base).map((bar, barIndex) =>
         <Bar key={bar + barIndex} notes={bar} />
       )}
     </Wrapper>

@@ -36,7 +36,7 @@ const Wrapper = (props) => (
     css={css`
       width: 100%;
       display: inline-flex;
-      max-width: 135px;
+      width: 135px;
       border-left: 4px solid #9a9aa0;
       border-right: 4px solid #9a9aa0;
       border-top: 2px solid #9a9aa0;
@@ -49,20 +49,22 @@ const Hit = ({ label = "", divider = 4 }) => (
   <div
     css={css`
       display: inline-block;
+      width: ${400 / divider}%;
     `}
   >
     <div
       css={css`
-      display: inline-block;
-      height: 32px;
-      width: ${128 / divider - 1}px;
-      margin-right: 1px;
-      background: ${getHitColor(label)};
-      display: flex;
-      align-items: center;
-      padding: 0 4px;
-      }
-    `}
+        display: inline-block;
+        height: 32px;
+        width: 100%;
+        margin-right: 1px;
+        background: ${getHitColor(label)};
+        padding: 0 4px;
+
+        &:not(:first-of-type) {
+          border-left: 1px solid #f8f8f7;
+        }
+      `}
     />
     <div
       css={css`
