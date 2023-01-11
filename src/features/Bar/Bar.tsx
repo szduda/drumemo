@@ -40,7 +40,7 @@ const Wrapper = ({ hasBell, ...props }) => (
       border-left: 4px solid #9a9aa0;
       border-right: 4px solid #9a9aa0;
       border-top: 2px solid #9a9aa0;
-      margin: ${hasBell ? 24 : 8}px 0 ${hasBell ? 32 : 16}px -4px;
+      margin: 24px 0 32px -4px;
     `}
   />
 )

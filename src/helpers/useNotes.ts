@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 
 const DEFAULT_NOTES =
-  "s..ss.tt\nsb.ss.+t+t+t\ns..ss.-t-t-t-t\nb.tt.bs.b.tt.bs."
+  "s..ss.ttsb.ss.+t+t+t\ns..ss.-t-t-t-tb.tt.bs.\nbx..x.sx.sx..xbx..x..x.x."
 const NOTES_QUERY_PARAM = "q"
 
 export const useNotes = () => {

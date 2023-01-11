@@ -38,7 +38,7 @@ export const Hit: FC<Props> = ({ hit, hideLabel = false, bellUnder = false }) =>
           width: 100%;
           text-align: center;
           font-variant: small-caps;
-          font-weight: 700;
+          font-weight: 500;
           font-size: 20px;
         `}
       >
@@ -48,12 +48,11 @@ export const Hit: FC<Props> = ({ hit, hideLabel = false, bellUnder = false }) =>
     {hit.includes(HITS.BELL) && (
       <div css={css`
         position: absolute;
-        top: ${bellUnder ? hideLabel ? 22 : 64 : -22}px;
+        top: ${bellUnder ? hideLabel ? 28 : 64 : -22}px;
         width: 100%;
-        text-align: center;
-        font-weight: bold;
+        font-weight: 500;
       `}>
-        x
+        <div css={css`width: 12px; height: 12px; background: #444; margin: 2px auto; border-radius: 50%;`} />
       </div>
     )}
   </div>
