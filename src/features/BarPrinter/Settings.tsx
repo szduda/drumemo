@@ -19,11 +19,10 @@ const availableBases = [3, 4]
 
 export const Settings: FC<Props> = ({ cols, setCols, base, setBase, hideLabels, setHideLabels, bellUnder, setBellUnder }) => (
   <Wrapper>
-    <div>
+    <div css={hideOnMobile()}>
       <select
         value={cols}
         onChange={(e) => setCols(Number(e.target.value))}
-        css={hideOnMobile()}
       >
         {availableCols.map((_cols) => (
           <option key={_cols} value={_cols} css={setOptionVisibility(_cols)}>
@@ -72,12 +71,20 @@ const Wrapper = (props) => (
     {...props}
     css={css`
       width: 100%;
-      margin: 0 0 32px;
-      justify-content: center;
+      margin: 0 0 16px;
       display: flex;
+      flex-wrap: wrap;
+
+      > * {
+        margin-bottom: 16px;
+      }
 
       > *:not(:last-of-type) {
         margin-right: 24px;
+      }
+
+      @media (min-width: 768px) {
+        justify-content: center;
       }
     `}
   />
