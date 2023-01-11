@@ -29,6 +29,18 @@ export const Hit: FC<Props> = ({ hit, hideLabel = false, bellUnder = false }) =>
         margin-right: 1px;
         background: ${getHitColor(getLabel(hit))};
         padding: 0 4px;
+
+        ${getDivider(hit) === 6 && `
+        &:after {
+          position: absolute;
+          content: '';
+          top: -5px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #9a9aa0;
+        }
+      `}
       `}
     />
     {!hideLabel && (
