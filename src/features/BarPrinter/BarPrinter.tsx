@@ -13,12 +13,14 @@ type Props = {
 export const BarPrinter: FC<Props> = ({ notes }) => {
   const [cols, setCols] = useState(4)
   const [base, setBase] = useState(4)
+  const [hideLabels, setHideLabels] = useState(false)
+  const [bellUnder, setBellUnder] = useState(false)
 
   return (
     <Wrapper {...{ cols }}>
-      <Settings {...{ cols, setCols, base, setBase }} />
+      <Settings {...{ cols, setCols, base, setBase, hideLabels, setHideLabels, bellUnder, setBellUnder }} />
       {convertToBars(notes, base).map((bar, barIndex) =>
-        <Bar key={bar + barIndex} notes={bar} />
+        <Bar key={bar + barIndex} notes={bar} hideLabels={hideLabels} bellUnder={bellUnder} />
       )}
     </Wrapper>
   )
